@@ -2,20 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     actions:{
-        toggleWebTwoDotOh: function(){
+        toggleWebTwoDotOh(){
             if( this.get('webTwoDotOh') ){
                 return this.set( 'webTwoDotOh', '');
             }
             this.set( 'webTwoDotOh', 'e' );
         },
-        toggleNav: function(){
+        toggleNav(){
             this.toggleProperty( 'showNav' );
         }
     },
 
     webTwoDotOh: 'e',
 
-    currentPathChange: function(){
+    currentPathChange: Ember.observer('currentPath', function(){
         this.set( 'showNav', false );
-    }.observes( 'currentPath' )
+    })
 });

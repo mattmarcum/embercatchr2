@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'embercatchr2',
+    podModulePrefix: 'embercatchr2/pods',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
     firebase: 'https://luminous-heat-8667.firebaseio.com',
