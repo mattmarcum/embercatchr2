@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'embercatchr2',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
-    firebase: 'https://YOUR-FIREBASE-NAME.firebaseio.com/',
+    firebase: 'https://luminous-heat-8667.firebaseio.com',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
