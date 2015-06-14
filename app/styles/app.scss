@@ -1,0 +1,98 @@
+@import 'bootstrap';
+
+$headerHeight: 70px;
+$footerHeight: 140px;
+
+$bgColor: #fff;
+$bgColorInverse: #000;
+
+$text: #000;
+$textInverse: #fff;
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.main-container, body > .ember-view:first-of-type {
+    margin: 0;
+    height: 100%;
+}
+
+nav.header {
+    height: $headerHeight;
+    width: 100%;
+    background-color: $bgColorInverse;
+    color: $textInverse;
+    position: absolute;
+}
+
+#main {
+    height: 100%;
+    padding-top: $headerHeight+15;
+    padding-bottom: $footerHeight;
+    background-color: $bgColor;
+    color: $text;
+}
+
+.navbar-header {
+    width: 100%;
+}
+.navbar-toggle {
+    float: left;
+    margin-left: 15px;
+}
+.navbar-right:last-of-type {
+  margin-right:0;
+}
+
+.main-row{
+    height: 100%;
+}
+
+.main-nav {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.main-content{
+    overflow:auto;
+    height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .row-offcanvas {
+        position: relative;
+        transition: all .25s ease-out;
+        left: 0;
+    }
+    .row-offcanvas.active {
+        left: 80%;
+    }
+    .row-offcanvas .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 75%;
+        left: -75%;
+    }
+}
+
+#footer {
+    height: $footerHeight;
+    width: 100%;
+    background-color: $bgColorInverse;
+    color: $textInverse;
+    position: absolute;
+    bottom: 0;
+}
+
+.progress-bar {
+    color: #000;
+}
+.progress-bar[aria-valuenow="1"], .progress-bar[aria-valuenow="2"] {
+    min-width: 0;
+}
+.progress-text {
+    padding-left: 5px;
+}
