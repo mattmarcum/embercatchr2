@@ -32,7 +32,7 @@ export default Ember.Component.extend({
     this.set('authParams', AuthParams.create({ container: this.get('container') }));
   },
   actions: {
-    submit(){
+    submit() {
       this.attrs.submit(this.get('authParams.email'), this.get('authParams.password'))
       .then(()=>
         this.set('authParams', AuthParams.create({ container: this.get('container') }))
@@ -40,6 +40,18 @@ export default Ember.Component.extend({
       .catch(
         (error)=>alert(`Authentication Error: ${error}`)
       );
+    },
+    forgotPassword() {
+      this.get('authParams').validate()
+      .then(()=>this.sendAction('forgotPassword', this.get('authParams.email')))
+      .catch(()=>{
+        if(this.get('authParams.errors.email.length')){
+          alert('Please enter your email address in the Login Email Adress field.');
+          return;
+        }
+        this.sendAction('forgotPassword', this.get('authParams.email'));
+      });
+
     }
   }
 });

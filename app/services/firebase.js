@@ -3,7 +3,7 @@ import Firebase from 'firebase';
 import config from '../config/environment';
 
 export default Ember.Service.extend({
-  init: function() {
+  init() {
       if (config.firebase) {
           this.set('firebase', new Firebase(config.firebase));
       } else {
@@ -11,37 +11,37 @@ export default Ember.Service.extend({
       }
       this._super();
   },
-  createUser: function(email, password){
+  createUser(email, password){
     return new Ember.RSVP.Promise(
-      function(resolve, reject){
+      (resolve, reject)=>{
         this.get('firebase').createUser({
           email: email,
           password: password
         },
-        function(error, data){
+        (error, data)=>{
           if(error){
             reject(error);
           }else{
             resolve(data);
           }
         });
-      }.bind(this)
+      }
     );
   },
-  emailPassword: function(email){
+  emailPassword(email){
     return new  Ember.RSVP.Promise(
-      function(resolve, reject){
+      (resolve, reject)=>{
         this.get('firebase').resetPassword({
           email: email
         },
-        function(error){
+        (error)=>{
           if(error){
             reject(error);
           }else{
             resolve();
           }
         });
-      }.bind(this)
+      }
     );
   }
 });

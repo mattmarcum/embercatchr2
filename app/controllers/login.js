@@ -12,6 +12,11 @@ export default Ember.Controller.extend({
         'email': email,
         'password': password
       }).then(()=>this.set('session.secure.auth.email', email));
+    },
+    forgotPassword(email){
+      this.get('firebase').emailPassword(email)
+      .then(()=>alert('Check your email for your new password!'))
+      .catch((error)=>alert(`Error: ${error}`));
     }
   }
 });
