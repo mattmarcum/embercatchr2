@@ -12,7 +12,7 @@ export default Ember.Service.extend({
       this._super();
   },
   createUser: function(email, password){
-    return Ember.RSVP.Promise(
+    return new Ember.RSVP.Promise(
       function(resolve, reject){
         this.get('firebase').createUser({
           email: email,
@@ -29,7 +29,7 @@ export default Ember.Service.extend({
     );
   },
   emailPassword: function(email){
-    return Ember.RSVP.Promise(
+    return new  Ember.RSVP.Promise(
       function(resolve, reject){
         this.get('firebase').resetPassword({
           email: email

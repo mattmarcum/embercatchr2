@@ -1,5 +1,6 @@
 <h1>Log In</h1>
-{{#em-form model=auth submit="submit"}}
+{{#em-form model=authParams action="submit" submit_button=false}}
   {{em-input type="email"    property="email"  placeholder="Enter an email address..." label="Email Address"}}
   {{em-input type="password" property="password" placeholder="Enter your password" label="Password"}}
+  <input {{bind-attr disabled=authParams.isntValid}} type="submit" class="btn btn-primary" value="Login">
 {{/em-form}}

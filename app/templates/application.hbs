@@ -9,13 +9,13 @@
                 <span class="icon-bar"></span>
             </button>
             <ul class="nav navbar-nav">
-              <li class="navbar-brand">Embercatch{{webTwoDotOh}}r</li>
+              <li class="navbar-brand">{{#link-to 'index'}}Embercatchr{{/link-to}}</li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
               {{#if session.isAuthenticated}}
                 <li class="navbar-text">{{session.user.email}}</li>
-                <li><a href="#" class="navbar-link" {{action "logout"}}>Log Out</a></li>
+                <li><a href="#" class="navbar-link" {{action "invalidateSession"}}>Log Out</a></li>
               {{else}}
                 <li>{{#link-to 'login' class="navbar-link"}}Sign In / Create Account{{/link-to}}</li>
               {{/if}}
